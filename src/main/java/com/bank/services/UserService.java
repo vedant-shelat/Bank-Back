@@ -45,6 +45,8 @@ public class UserService {
         user.setRole(Role.ROLE_USER);
         user.setPassword(this.passwordEncoder.encode(userDTO.getPassword()));
         user.setCreationDate(new Date().getTime());
+        SimpleMailMessage mail = this.mailConstructor.sendMailToNewUser(userDTO);
+        this.javaMailSender.send(mail);
         this.userRepository.save(user);
     }
 

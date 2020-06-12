@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.Map;
 
 @RestController
-public class JwtAuthenticationResource {
+public class JwtAuthenticationResources {
 
     @Autowired
     private AuthenticationManager authenticationManager;

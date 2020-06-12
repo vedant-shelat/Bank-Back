@@ -23,12 +23,15 @@ public class MailConstructor {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public SimpleMailMessage sendMail() {
+    public SimpleMailMessage sendMailToNewUser(UserDTO userDTO) {
         SimpleMailMessage mail = new SimpleMailMessage();
-        String content = "Hello Vedant, you have a message." + "\n";
-        mail.setTo("shelatvedant@gmail.com");
+        String content = "Hello " + userDTO.getUsername() + "," + "\n" +
+                "Your account has been created succesfully." + "\n" + "\n" +
+                "Regards," + "\n" +
+                "SG Bank";
+        mail.setTo(userDTO.getEmail());
         mail.setFrom(from);
-        mail.setSubject("SG Bank: Contact Us");
+        mail.setSubject("SG Bank: Account Created");
         mail.setText(content);
         return mail;
     }

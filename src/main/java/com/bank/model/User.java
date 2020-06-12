@@ -1,8 +1,7 @@
 package com.bank.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
@@ -14,6 +13,13 @@ public class User extends AbstractEntity {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    private Double balance = 0.0;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<History> histories;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Deposit> deposits;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Withdrawal> withdrawals;
 
     public User() {}
 
@@ -63,5 +69,37 @@ public class User extends AbstractEntity {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public List<History> getHistories() {
+        return histories;
+    }
+
+    public void setHistories(List<History> histories) {
+        this.histories = histories;
+    }
+
+    public List<Deposit> getDeposits() {
+        return deposits;
+    }
+
+    public void setDeposits(List<Deposit> deposits) {
+        this.deposits = deposits;
+    }
+
+    public List<Withdrawal> getWithdrawals() {
+        return withdrawals;
+    }
+
+    public void setWithdrawals(List<Withdrawal> withdrawals) {
+        this.withdrawals = withdrawals;
     }
 }

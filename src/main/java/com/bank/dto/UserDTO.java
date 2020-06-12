@@ -3,6 +3,10 @@ package com.bank.dto;
 import com.bank.model.Role;
 import com.bank.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class UserDTO {
 
     private Long id;
@@ -12,6 +16,10 @@ public class UserDTO {
     private String email;
     private String password;
     private Role role;
+    private Double balance;
+    private List<HistoryDTO> histories = new ArrayList<>();
+    private List<DepositDTO> deposits = new ArrayList<>();
+    private List<WithdrawalDTO> withdrawals = new ArrayList<>();
 
     public UserDTO() {}
 
@@ -22,6 +30,16 @@ public class UserDTO {
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.role = user.getRole();
+        this.balance = user.getBalance();
+        if(user.getHistories() != null) {
+            this.histories = user.getHistories().stream().map(h->  new HistoryDTO(h)).collect(Collectors.toList());
+        }
+        if(user.getDeposits() != null) {
+            this.deposits = user.getDeposits().stream().map(d->  new DepositDTO(d)).collect(Collectors.toList());
+        }
+        if(user.getWithdrawals() != null) {
+            this.withdrawals = user.getWithdrawals().stream().map(w->  new WithdrawalDTO(w)).collect(Collectors.toList());
+        }
     }
 
     public Long getId() {
@@ -78,5 +96,37 @@ public class UserDTO {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public List<HistoryDTO> getHistories() {
+        return histories;
+    }
+
+    public void setHistories(List<HistoryDTO> histories) {
+        this.histories = histories;
+    }
+
+    public List<DepositDTO> getDeposits() {
+        return deposits;
+    }
+
+    public void setDeposits(List<DepositDTO> deposits) {
+        this.deposits = deposits;
+    }
+
+    public List<WithdrawalDTO> getWithdrawals() {
+        return withdrawals;
+    }
+
+    public void setWithdrawals(List<WithdrawalDTO> withdrawals) {
+        this.withdrawals = withdrawals;
     }
 }
