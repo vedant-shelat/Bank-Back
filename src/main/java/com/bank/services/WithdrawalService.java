@@ -1,7 +1,5 @@
 package com.bank.services;
 
-import com.bank.dto.DepositDTO;
-import com.bank.dto.DepositDataTableDTO;
 import com.bank.dto.WithdrawalDTO;
 import com.bank.dto.WithdrawalDataTableDTO;
 import com.bank.model.*;

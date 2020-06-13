@@ -1,8 +1,6 @@
 package com.bank.services;
 
-import com.bank.dto.DepositDataTableDTO;
 import com.bank.dto.HistoryDataTableDTO;
-import com.bank.model.Deposit;
 import com.bank.model.History;
 import com.bank.model.User;
 import com.bank.repository.HistoryRepository;

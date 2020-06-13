@@ -1,6 +1,5 @@
 package com.bank.dto;
 
-import com.bank.model.Deposit;
 import com.bank.model.Withdrawal;
 import org.springframework.data.domain.Page;
 

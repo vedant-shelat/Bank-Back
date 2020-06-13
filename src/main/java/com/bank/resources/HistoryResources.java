@@ -1,6 +1,5 @@
 package com.bank.resources;
 
-import com.bank.dto.DepositDataTableDTO;
 import com.bank.dto.HistoryDataTableDTO;
 import com.bank.services.HistoryService;
 import com.bank.utility.Pager;

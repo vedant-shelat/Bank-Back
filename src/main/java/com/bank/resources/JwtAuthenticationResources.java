@@ -2,7 +2,6 @@ package com.bank.resources;
 
 import com.bank.config.JwtTokenUtil;
 import com.bank.dto.UserDTO;
-import com.bank.model.User;
 import com.bank.repository.UserRepository;
 import com.bank.services.JwtUserDetailService;
 import com.bank.services.UserService;
