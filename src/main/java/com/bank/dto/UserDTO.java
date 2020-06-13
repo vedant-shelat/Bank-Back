@@ -18,8 +18,6 @@ public class UserDTO {
     private Role role;
     private Double balance;
     private List<HistoryDTO> histories = new ArrayList<>();
-    private List<DepositDTO> deposits = new ArrayList<>();
-    private List<WithdrawalDTO> withdrawals = new ArrayList<>();
 
     public UserDTO() {}
 
@@ -33,12 +31,6 @@ public class UserDTO {
         this.balance = user.getBalance();
         if(user.getHistories() != null) {
             this.histories = user.getHistories().stream().map(h->  new HistoryDTO(h)).collect(Collectors.toList());
-        }
-        if(user.getDeposits() != null) {
-            this.deposits = user.getDeposits().stream().map(d->  new DepositDTO(d)).collect(Collectors.toList());
-        }
-        if(user.getWithdrawals() != null) {
-            this.withdrawals = user.getWithdrawals().stream().map(w->  new WithdrawalDTO(w)).collect(Collectors.toList());
         }
     }
 
@@ -112,21 +104,5 @@ public class UserDTO {
 
     public void setHistories(List<HistoryDTO> histories) {
         this.histories = histories;
-    }
-
-    public List<DepositDTO> getDeposits() {
-        return deposits;
-    }
-
-    public void setDeposits(List<DepositDTO> deposits) {
-        this.deposits = deposits;
-    }
-
-    public List<WithdrawalDTO> getWithdrawals() {
-        return withdrawals;
-    }
-
-    public void setWithdrawals(List<WithdrawalDTO> withdrawals) {
-        this.withdrawals = withdrawals;
     }
 }

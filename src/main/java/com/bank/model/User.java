@@ -14,12 +14,8 @@ public class User extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
     private Double balance = 0.0;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<History> histories;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Deposit> deposits;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Withdrawal> withdrawals;
 
     public User() {}
 
@@ -85,21 +81,5 @@ public class User extends AbstractEntity {
 
     public void setHistories(List<History> histories) {
         this.histories = histories;
-    }
-
-    public List<Deposit> getDeposits() {
-        return deposits;
-    }
-
-    public void setDeposits(List<Deposit> deposits) {
-        this.deposits = deposits;
-    }
-
-    public List<Withdrawal> getWithdrawals() {
-        return withdrawals;
-    }
-
-    public void setWithdrawals(List<Withdrawal> withdrawals) {
-        this.withdrawals = withdrawals;
     }
 }

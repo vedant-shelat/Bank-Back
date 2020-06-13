@@ -1,6 +1,6 @@
 package com.bank.utility;
 
-public abstract class Pager {
+public class Pager {
     private Integer page;
     private Integer size;
 

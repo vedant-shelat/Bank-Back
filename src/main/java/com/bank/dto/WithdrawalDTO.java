@@ -7,6 +7,7 @@ public class WithdrawalDTO {
     private Long id;
     private Long creationDate;
     private Double amount;
+    private Long userId;
 
     public WithdrawalDTO() {}
 
@@ -14,6 +15,9 @@ public class WithdrawalDTO {
         this.id = withdrawal.getId();
         this.creationDate = withdrawal.getCreationDate();
         this.amount = withdrawal.getAmount();
+        if(withdrawal.getUser() != null) {
+            this.userId = withdrawal.getUser().getId();
+        }
     }
 
     public Long getId() {
@@ -38,5 +42,13 @@ public class WithdrawalDTO {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

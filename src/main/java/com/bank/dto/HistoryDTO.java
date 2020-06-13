@@ -9,6 +9,7 @@ public class HistoryDTO {
     private Long creationDate;
     private Operation operation;
     private Double amount;
+    private Long userId;
 
     public HistoryDTO() {}
 
@@ -17,6 +18,9 @@ public class HistoryDTO {
         this.creationDate = history.getCreationDate();
         this.operation = history.getOperation();
         this.amount = history.getAmount();
+        if(history.getUser() != null) {
+            this.userId = history.getUser().getId();
+        }
     }
 
     public Long getId() {
@@ -49,5 +53,13 @@ public class HistoryDTO {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
