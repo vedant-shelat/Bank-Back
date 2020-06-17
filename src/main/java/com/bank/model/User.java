@@ -1,6 +1,7 @@
 package com.bank.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ public class User extends AbstractEntity {
     private Role role;
     private Double balance = 0.0;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<History> histories;
+    private List<History> histories = new ArrayList<>();
 
     public User() {}
 

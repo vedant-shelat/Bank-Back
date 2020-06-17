@@ -46,8 +46,7 @@ public class WithdrawalService {
     public WithdrawalDTO withdrawMoney(WithdrawalDTO withdrawalDTO) {
         Withdrawal withdrawal = new Withdrawal();
         History history = new History();
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = this.userRepository.findByUsername(authentication.getName());
+        User user = this.userRepository.findById(withdrawalDTO.getUserId()).orElse(null);
         withdrawal.setAmount(withdrawalDTO.getAmount());
         withdrawal.setCreationDate(new Date().getTime());
         withdrawal.setUser(user);

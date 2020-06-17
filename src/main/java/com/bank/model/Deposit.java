@@ -15,6 +15,12 @@ public class Deposit extends AbstractEntity {
 
     public Deposit() {}
 
+    public Deposit(Long id, Double amount, User user) {
+        super(id);
+        this.amount = amount;
+        this.user = user;
+    }
+
     public Double getAmount() {
         return amount;
     }

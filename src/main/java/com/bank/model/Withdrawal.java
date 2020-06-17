@@ -15,6 +15,12 @@ public class Withdrawal extends AbstractEntity {
 
     public Withdrawal() {}
 
+    public Withdrawal(Long id, Double amount, User user) {
+        super(id);
+        this.amount = amount;
+        this.user = user;
+    }
+
     public Double getAmount() {
         return amount;
     }

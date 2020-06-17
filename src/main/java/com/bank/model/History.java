@@ -14,6 +14,13 @@ public class History extends AbstractEntity {
 
     public History() {}
 
+    public History(Long id, Operation operation, Double amount, User user) {
+        super(id);
+        this.operation = operation;
+        this.amount = amount;
+        this.user = user;
+    }
+
     public Operation getOperation() {
         return operation;
     }

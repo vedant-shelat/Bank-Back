@@ -49,8 +49,7 @@ public class DepositService {
     public DepositDTO addDeposit(DepositDTO depositDTO) {
         Deposit deposit = new Deposit();
         History history = new History();
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = this.userRepository.findByUsername(authentication.getName());
+        User user = this.userRepository.findById(depositDTO.getUserId()).orElse(null);
         deposit.setAmount(depositDTO.getAmount());
         deposit.setCreationDate(new Date().getTime());
         deposit.setUser(user);
